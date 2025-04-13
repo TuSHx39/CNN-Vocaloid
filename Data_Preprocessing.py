@@ -64,4 +64,4 @@ def batch_process_audio(input_dir, output_dir, target_sr=44100, target_bitrate='
 if __name__ == "__main__":
     input_dir = "C:\Data\Vocal"  # 替换为包含音频文件夹的路径
     output_dir = "data"  # 替换为保存梅尔频谱数组的路径
-    batch_process_audio(input_dir, output_dir)
+    batch_process_audio(input_dir, output_dir) 

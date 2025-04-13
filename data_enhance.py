@@ -34,7 +34,7 @@ def process_audio_files(input_folder, output_folder, min_pitch_shift=-2, max_pit
 
         # 应用升降调
         y_shifted = librosa.effects.pitch_shift(y=y, sr=sr, n_steps=pitch_shift)
-
+    
         # 应用速度变化
         y_stretched = librosa.effects.time_stretch(y_shifted, rate=speed_change)
 
