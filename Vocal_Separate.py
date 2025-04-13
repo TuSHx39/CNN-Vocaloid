@@ -18,8 +18,8 @@ def separate_vocals_from_folder(input_folder, output_folder, model='spleeter:2st
 
 # 示例：从 'songs' 文件夹中提取 1 到 100 的人声，保存到 'vocals' 文件夹中
 if __name__ == "__main__": 
-    input_folder = r"Musics/GUMI"  
-    output_folder = r"Separate/Vocal/GUMI"  
+    input_folder = r"Musics/SP"  
+    output_folder = r"Separate/Vocal/SP"  
 
     separate_vocals_from_folder(input_folder, output_folder, start_index=1,end_index=400)
                                                                                                       

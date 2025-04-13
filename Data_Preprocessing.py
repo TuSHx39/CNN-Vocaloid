@@ -2,9 +2,8 @@ import os
 import librosa
 import numpy as np
 import soundfile as sf
-import gc  # 导入垃圾回收器
 
-def trim_silence(y, sr, top_db=20, frame_length=2048, hop_length=512):
+def trim_silence(y, sr, top_db=8, frame_length=2048, hop_length=512):
     y_trimmed, _ = librosa.effects.trim(y, top_db=top_db, frame_length=frame_length, hop_length=hop_length)
     return y_trimmed
 
@@ -43,7 +42,7 @@ def batch_process_audio(input_dir, output_dir, target_sr=44100, target_bitrate='
             for audio_file in os.listdir(folder_path):
                 if audio_file.endswith(".wav"):
                     input_audio_path = os.path.join(folder_path, audio_file)
-                    output_path = os.path.join(output_subdir, f"{os.path.splitext(audio_file)[0]}_mel_spectrograms.npy")
+                    output_path = os.path.join(output_subdir, f"{os.path.splitext(audio_file)[0]}.npy")
 
                     # 加载音频文件
                     y, sr = librosa.load(input_audio_path, sr=target_sr)
@@ -57,10 +56,12 @@ def batch_process_audio(input_dir, output_dir, target_sr=44100, target_bitrate='
                     # 计算梅尔频谱并保存为 NumPy 数组
                     compute_mel_spectrogram(slices, output_path, sr)
 
+                    print(f"文件 {audio_file} 处理结果已保存至 {output_path}")
+
                     # 释放内存
                     del y, vocals_trimmed, slices
 
 if __name__ == "__main__":
-    input_dir = "test"  # 替换为包含音频文件夹的路径
+    input_dir = "C:\Data\Vocal"  # 替换为包含音频文件夹的路径
     output_dir = "data"  # 替换为保存梅尔频谱数组的路径
     batch_process_audio(input_dir, output_dir)
