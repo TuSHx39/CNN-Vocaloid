@@ -31,10 +31,7 @@ def merge_arrays_in_folder(input_folder, output_folder):
         print(f"合并后的数组已保存到 {output_path}")
 
 if __name__ == "__main__":
-  
-    input_folder = "data"  
-
-    output_folder = "Training Set" 
-
+    input_folder = "data/unfinished"  # 输入文件夹路径
+    output_folder = "Training Set"
 
     merge_arrays_in_folder(input_folder, output_folder)

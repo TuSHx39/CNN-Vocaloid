@@ -71,7 +71,7 @@ def dump(file_path):
     f.close()
  
 if __name__ == '__main__':
-    file_path =r"Musics/GUMI/VIP"
+    file_path =r"Musics/vflower/VIP"
     try:
         list = os.listdir(file_path)
         for i in range(0, len(list)):
@@ -82,4 +82,4 @@ if __name__ == '__main__':
                 except Exception as e:
                     print(f"Error processing file {path}: {e}")
     except Exception as e:
-            rint(f"Error accessing directory {file_path}: {e}")
+            print(f"Error accessing directory {file_path}: {e}")
